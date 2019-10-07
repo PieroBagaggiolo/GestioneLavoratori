@@ -24,7 +24,7 @@ namespace GestioneLavoratori
         public override string GetDettaglioPersona()
         {
             return base.GetDettaglioPersona() + 
-                Environment.NewLine + RAL + 
+                Environment.NewLine + StipendioMens + 
                 Environment.NewLine + DataAssunzione +
                 Environment.NewLine + AnniServizio;
         }
@@ -35,12 +35,8 @@ namespace GestioneLavoratori
         }
         public virtual int CalcoloStipendio(int mensilità)
         {
-            return RAL / mensilità;
+            return RAL = StipendioMens*mensilità;
         }
         
-        public virtual int CalcoloTasse()
-        {
-            if()
-        }
     }
 }
