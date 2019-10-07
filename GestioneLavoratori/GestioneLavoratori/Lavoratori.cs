@@ -15,7 +15,10 @@ namespace GestioneLavoratori
 
         public Lavoratori(string nome, string cognome) : base (nome, cognome)
         {
-            
+            DataAssunzione = DateTime.Now;
+            RAL = 0;
+            StipendioMens = 0;
+            AnniServizio = 0;
         }
 
         public override string GetDettaglioPersona()

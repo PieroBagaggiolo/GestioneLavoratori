@@ -10,6 +10,7 @@ namespace GestioneLavoratori
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

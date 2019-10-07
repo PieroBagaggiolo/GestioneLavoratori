@@ -41,5 +41,10 @@ namespace GestioneLavoratori
                 Genere + System.Environment.NewLine +
                 DataNascita;
         }
+
+        public virtual int CalcolaAnni()
+        {
+            return DateTime.Now.Year - DataNascita.Year;
+        }
     }
 }

@@ -8,9 +8,10 @@ namespace GestioneLavoratori
 {
     class Dipendenti : Lavoratori
     {
+        public int Tasse { get; set; }
         public Dipendenti(string nome, string cognome) : base(nome, cognome)
         {
-
+            
         }
     }
 }

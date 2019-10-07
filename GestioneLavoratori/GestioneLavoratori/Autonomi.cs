@@ -8,6 +8,7 @@ namespace GestioneLavoratori
 {
     class Autonomi : Lavoratori
     {
+        public int Tasse { get; set; };
 
     }
 }
