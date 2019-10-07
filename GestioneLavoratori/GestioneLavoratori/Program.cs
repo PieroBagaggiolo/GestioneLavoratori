@@ -17,7 +17,7 @@ namespace GestioneLavoratori
                 DataAssunzione = new DateTime(1981, 11, 21),
                 RAL = 48500,
                 Mensilità = 12,
-
+                
             };
         }
     }

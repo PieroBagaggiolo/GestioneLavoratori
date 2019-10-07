@@ -37,5 +37,10 @@ namespace GestioneLavoratori
         {
             return RAL / mensilità;
         }
+        
+        public virtual int CalcoloTasse()
+        {
+            if()
+        }
     }
 }

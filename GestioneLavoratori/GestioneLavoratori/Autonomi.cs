@@ -10,7 +10,7 @@ namespace GestioneLavoratori
     {
         public int Tasse { get; set; }
         public int Mensilità { get; set; }
-        public Autonomi(string nome, string cognome) : base(nome, cognome)
+        public Autonomi(string nome, string cognome, ) : base(nome, cognome)
         {
             Mensilità = 0;
             Tasse = 0;
@@ -19,7 +19,8 @@ namespace GestioneLavoratori
         public override string GetDettaglioPersona()
         {
             return base.GetDettaglioPersona() + Tasse;
-        }
 
+
+        }
     }
 }
