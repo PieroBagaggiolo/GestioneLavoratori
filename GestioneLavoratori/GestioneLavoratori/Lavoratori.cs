@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GestioneLavoratori
 {
-    class Lavoratori
+    class Lavoratori : Persona
     {
+        public int RAL { get; set; };
+        public DateTime DataAssunzione;
     }
 }
