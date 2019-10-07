@@ -14,8 +14,11 @@ namespace GestioneLavoratori
         public int Anni { get; set; }
         public string Genere { get; set; }
 
-        //public int Anni { get; set; }
-
+        public Persona(string nome, string cognome)
+        {
+            Nome = nome;
+            Cognome = cognome;
+        }
         public Persona(string nome, string cognome, DateTime dataNascita, string genere)
         {
             Nome = nome;
@@ -27,6 +30,16 @@ namespace GestioneLavoratori
             var AnnoNascita = dataNascita.Year;
 
             Anni = AnnoAtt - AnnoNascita;
+        }
+
+        public virtual string GetDettaglioPersona()
+        {
+            return
+                Nome + System.Environment.NewLine +
+                Cognome + System.Environment.NewLine +
+                Anni + System.Environment.NewLine +
+                Genere + System.Environment.NewLine +
+                DataNascita;
         }
     }
 }
