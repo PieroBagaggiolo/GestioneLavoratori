@@ -9,9 +9,12 @@ namespace GestioneLavoratori
     class Dipendenti : Lavoratori
     {
         public int Tasse { get; set; }
+        public int Mensilità { get; set; }
         public Dipendenti(string nome, string cognome) : base(nome, cognome)
         {
-            
+            Mensilità = 0;
+            Tasse = CalcoloStipendio(Mensilità);
         }
+
     }
 }

@@ -28,5 +28,14 @@ namespace GestioneLavoratori
                 Environment.NewLine + DataAssunzione +
                 Environment.NewLine + AnniServizio;
         }
+
+        public override int CalcolaAnni()
+        {
+            return base.CalcolaAnni();
+        }
+        public virtual int CalcoloStipendio(int mensilità)
+        {
+            return RAL / mensilità;
+        }
     }
 }
