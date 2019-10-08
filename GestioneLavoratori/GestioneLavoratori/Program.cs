@@ -33,7 +33,7 @@ namespace GestioneLavoratori
             
             Console.WriteLine("Quanti lavoratori vuoi inserire?");
             quanto = Int32.Parse(Console.ReadLine());
-            
+            decimal[] tasse = new decimal[quanto];
 
             Lavoratori[] lavoratori = new Lavoratori[quanto];
             for (int i=0; i < quanto; i++)
@@ -70,11 +70,14 @@ namespace GestioneLavoratori
                 if (tipo == 1)
                 {
                     Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione);
+                    tasse[i] = aut.tasse;
                     lavoratori[i] = (Lavoratori)aut;
+
                 }
                 else if(tipo == 2)
                 {
                     Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
+                    tasse[i] = aut.tasse;
                     lavoratori[i] = (Lavoratori)dip;
                 }
             }//inserimento lavoratori
@@ -125,9 +128,9 @@ namespace GestioneLavoratori
             {
 
             }
-           foreach(var lavoratore in lavoratori)
+           for(int i=0;i<lavoratori.Length;i++)
             {
-                Console.WriteLine(lavoratore.GetDettaglioPersona()+Environment.NewLine);
+                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ " " + tasse[i] + Environment.NewLine);
             }
             
             
