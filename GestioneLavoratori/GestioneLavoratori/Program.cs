@@ -10,18 +10,15 @@ namespace GestioneLavoratori
     {
         static void Main(string[] args)
         {
-            Autonomi a1 = new Autonomi("Paolo", "Verdi", 12, 1200)
+            Autonomi a1 = new Autonomi("Paolo", "Verdi", 12, 1200, new DateTime(1960, 12, 1), new DateTime(1981, 11, 21))
             {
-                DataNascita = new DateTime(1960, 12, 1),
                 Genere = "M",
-                DataAssunzione = new DateTime(1981, 11, 21),
             };
 
-            Dipendenti d1 = new Dipendenti("Marco", "Domodossola", 13, 1300)
+            Dipendenti d1 = new Dipendenti("Marco", "Domodossola", 13, 1300,
+               new DateTime(1985, 5, 21), new DateTime(2001, 3, 3))
             {
-                DataNascita = new DateTime(1985, 5, 21),
                 Genere = "M",
-                DataAssunzione = new DateTime(2001, 3, 3),
             };
 
             Console.WriteLine("I dettagli del lavoratore a1 sono: " +

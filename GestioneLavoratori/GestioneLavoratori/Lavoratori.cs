@@ -14,9 +14,11 @@ namespace GestioneLavoratori
         public int StipendioMens;
         public int Mensilita { get; set; }
 
-        public Lavoratori(string nome, string cognome ,int mensilita, int stipendioMensile) : base (nome, cognome)
+        public Lavoratori(string nome, string cognome ,int mensilita, int stipendioMensile, DateTime dN, DateTime dA) : 
+            base (nome, cognome, dN)
         {
-            DataAssunzione = DateTime.Now;
+            DataAssunzione = dA;
+            DataNascita = dN;
             StipendioMens = stipendioMensile;
             Mensilita = mensilita;
             Anni = CalcolaAnni();

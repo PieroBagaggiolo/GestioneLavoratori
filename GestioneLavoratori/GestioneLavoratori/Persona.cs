@@ -19,12 +19,11 @@ namespace GestioneLavoratori
             Nome = nome;
             Cognome = cognome;
         }
-        public Persona(string nome, string cognome, DateTime dataNascita, string genere)
+        public Persona(string nome, string cognome, DateTime dataNascita)
         {
             Nome = nome;
             Cognome = cognome;
             dataNascita = DataNascita;
-            Genere = genere;
 
             var AnnoAtt = DateTime.Now.Year;
             var AnnoNascita = dataNascita.Year;
@@ -44,7 +43,8 @@ namespace GestioneLavoratori
 
         public virtual int CalcolaAnni()
         {
-            return DateTime.Now.Year - DataNascita.Year;
+            int result = DateTime.Now.Year - DataNascita.Year;
+            return result;
         }
     }
 }

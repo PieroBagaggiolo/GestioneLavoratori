@@ -9,7 +9,8 @@ namespace GestioneLavoratori
     class Dipendenti : Lavoratori
     {
         public int Tasse { get; set; }
-        public Dipendenti(string nome, string cognome, int mensilita, int stipendioMensile) : base(nome, cognome, mensilita, stipendioMensile)
+        public Dipendenti(string nome, string cognome, int mensilita, int stipendioMensile, DateTime dn, DateTime dA) 
+            : base(nome, cognome, mensilita, stipendioMensile, dn, dA)
         {
             if (0 < RAL || RAL < 6000)
             {
@@ -32,9 +33,6 @@ namespace GestioneLavoratori
                 Tasse = RAL / (100*50);
             }
         }
-
-        
-
         public string GetFinancial()
         {
             return "Tasse: " +Tasse;
