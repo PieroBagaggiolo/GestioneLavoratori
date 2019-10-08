@@ -77,11 +77,22 @@ namespace GestioneLavoratori
                     Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
                     lavoratori[i] = (Lavoratori)dip;
                 }
-            }
-           /* foreach(var i in lavoratori)
+            }//inserimento lavoratori
+
+            Console.WriteLine("Gli vuoi ordinati per stipendio(1) o per anzianità?(2)");
+            int scelta = Int32.Parse(Console.ReadLine());
+            if(scelta == 1)
             {
-                Console.WriteLine(lavoratori.GetDettaglioPersona(), i);
-            }*/
+
+            }
+            else if(scelta == 2)
+            {
+
+            }
+           foreach(var lavoratore in lavoratori)
+            {
+                Console.WriteLine(lavoratore.GetDettaglioPersona()+Environment.NewLine);
+            }
             
             
 
