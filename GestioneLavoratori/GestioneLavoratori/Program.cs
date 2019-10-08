@@ -27,6 +27,10 @@ namespace GestioneLavoratori
                 Mensilità = 13,
 
             };
+
+            Console.WriteLine("I dettagli del lavoratore a1 sono: " + 
+                System.Environment.NewLine + a1.GetDettaglioPersona()
+                );
         }
     }
 }

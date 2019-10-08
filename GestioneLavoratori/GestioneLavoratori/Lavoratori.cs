@@ -12,18 +12,16 @@ namespace GestioneLavoratori
         public DateTime DataAssunzione;
         public int AnniServizio { get; set; }
         public int StipendioMens;
-        public int RAL { get; set; }
+        public int Mensilita { get; set; }
 
-        public Lavoratori(string nome, string cognome) : base (nome, cognome)
+        public Lavoratori(string nome, string cognome ,int mensilita) : base (nome, cognome)
         {
             DataAssunzione = DateTime.Now;
-            RAL = 0;
             StipendioMens = 1500;
             AnniServizio = 0;
-        }
-        public Lavoratori(string nome, string cognome, DateTime dataNascita, string genere): base (nome,cognome,dataNascita,genere)
-        {
+            Mensilita = mensilita;
 
+            RAL = StipendioMens * Mensilita;
         }
 
         public override string GetDettaglioPersona()
@@ -31,7 +29,9 @@ namespace GestioneLavoratori
             return base.GetDettaglioPersona() + 
                 Environment.NewLine + StipendioMens + 
                 Environment.NewLine + DataAssunzione +
-                Environment.NewLine + AnniServizio;
+                Environment.NewLine + AnniServizio + 
+                Environment.NewLine + Mensilita+
+                Environment.;
         }
 
         public override int CalcolaAnni()

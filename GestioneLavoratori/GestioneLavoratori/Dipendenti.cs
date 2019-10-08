@@ -9,41 +9,35 @@ namespace GestioneLavoratori
     class Dipendenti : Lavoratori
     {
         public int Tasse { get; set; }
-        public Dipendenti(string nome, string cognome) : base(nome, cognome)
+        public Dipendenti(string nome, string cognome, int mensilita) : base(nome, cognome, mensilita)
         {
-            Mensilità = 0;
-            Tasse = 0;
-            RAL = CalcoloStipendio(Mensilità);
+            if (0 < RAL || RAL < 6000)
+            {
+                Tasse = RAL;
+            }
+            else if (6000 < RAL || RAL < 15000)
+            {
+                Tasse = RAL / (15 / 100);
+            }
+            else if (15000 < RAL || RAL < 25000)
+            {
+                Tasse = RAL / (30 / 100);
+            }
+            else if (25000 < RAL || RAL <= 35000)
+            {
+                Tasse = RAL / (40 / 100);
+            }
+            else if (RAL > 35000)
+            {
+                Tasse = RAL / (50 / 100);
+            }
         }
 
-        public int CalcoloTasse()
-        {
-            if(0<RAL || RAL<6000)
-            {
-                return RAL;
-            }
-            else if(6000<RAL || RAL<15000)
-            {
-                return RAL / (15 / 100);
-            }
-            else if(15000<RAL || RAL<25000)
-            {
-                return RAL / (30 / 100);
-            }
-            else if(25000<RAL || RAL<=35000)
-            {
-                return RAL / (40 / 100);
-            }
-            else if(RAL>35000)
-            {
-                return RAL / (50 / 100);
-            }
-        }
+        
 
         public override string GetFinancial()
         {
-            return base.GetFinancial() + Environment.NewLine
-                + CalcoloTasse;
+            return base.GetFinancial() + Environment.NewLine;
         }
 
     }
