@@ -83,7 +83,17 @@ namespace GestioneLavoratori
             int scelta = Int32.Parse(Console.ReadLine());
             if(scelta == 1)
             {
-
+                for(int i = 0; i<lavoratori.Length; i++)
+                {
+                    int index = i;
+                    for(int j = i+1; j<lavoratori.Length;j++)
+                    {
+                        if(lavoratori[j].StipendioMens<lavoratori[index].StipendioMens)
+                        {
+                            index = j;
+                        }
+                    }
+                }
             }
             else if(scelta == 2)
             {
@@ -91,7 +101,7 @@ namespace GestioneLavoratori
             }
            foreach(var lavoratore in lavoratori)
             {
-                Console.WriteLine(lavoratore.GetDettaglioPersona()+Environment.NewLine);
+                Console.WriteLine(lavoratore.GetDettaglioPersona()+Environment.NewLine+);
             }
             
             

@@ -13,6 +13,7 @@ namespace GestioneLavoratori
         public int AnniServizio { get; set; }
         public int StipendioMens;
         public int Mensilita { get; set; }
+        public decimal tasse { get; set; }
         public Lavoratori() : base ()
         {
 
