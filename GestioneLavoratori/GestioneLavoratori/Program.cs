@@ -59,7 +59,7 @@ namespace GestioneLavoratori
                 int mA = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Anno:");
                 int yA = Int32.Parse(Console.ReadLine());
-                DateTime assunzione = new DateTime(yN, mN, gN);
+                DateTime assunzione = new DateTime(yA, mA, gA);
                 Console.WriteLine("Inserisci lo stipendio mensile: ");
                 int stipMens = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Inserisci la mensilità: ");
@@ -70,12 +70,18 @@ namespace GestioneLavoratori
                 if (tipo == 1)
                 {
                     Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione);
+                    lavoratori[i] = (Lavoratori)aut;
                 }
                 else if(tipo == 2)
                 {
                     Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
+                    lavoratori[i] = (Lavoratori)dip;
                 }
             }
+           /* foreach(var i in lavoratori)
+            {
+                Console.WriteLine(lavoratori.GetDettaglioPersona(), i);
+            }*/
             
             
 
