@@ -8,9 +8,7 @@ namespace GestioneLavoratori
 {
     class Dipendenti : Lavoratori
     {
-        public int RAL { get; set; }
         public int Tasse { get; set; }
-        public int Mensilità { get; set; }
         public Dipendenti(string nome, string cognome) : base(nome, cognome)
         {
             Mensilità = 0;
@@ -40,6 +38,12 @@ namespace GestioneLavoratori
             {
                 return RAL / (50 / 100);
             }
+        }
+
+        public override string GetFinancial()
+        {
+            return base.GetFinancial() + Environment.NewLine
+                + CalcoloTasse;
         }
 
     }

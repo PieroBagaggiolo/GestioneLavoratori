@@ -9,7 +9,6 @@ namespace GestioneLavoratori
     class Autonomi : Lavoratori
     {
         public double Tasse { get; set; }
-        public int Mensilità { get; set; }
         public Autonomi(string nome, string cognome) : base(nome, cognome)
         {
 
@@ -20,7 +19,6 @@ namespace GestioneLavoratori
             return base.GetDettaglioPersona() + Tasse;
         }
 
-        public 
         public double CalcoloTasse()
         {
             if(RAL<50000)
@@ -31,6 +29,13 @@ namespace GestioneLavoratori
             {
                 return RAL / (30 / 100);
             }
+        }
+
+        public override string GetFinancial()
+        {
+            return base.GetFinancial() + Environment.NewLine
+                + Mensilità + Environment.NewLine
+                + CalcoloTasse(),;
         }
     }
 }

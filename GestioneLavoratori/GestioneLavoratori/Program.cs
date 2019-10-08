@@ -19,14 +19,14 @@ namespace GestioneLavoratori
                 
             };
 
-            Dipendenti d1 = new Dipendenti("Marco","Domodossola")
+            Dipendenti d1 = new Dipendenti("Marco", "Domodossola")
             {
-                DataNascita = new DateTime(1985,5,21),
+                DataNascita = new DateTime(1985, 5, 21),
                 Genere = "M",
-                DataAssunzione = new DateTime(2001,3,3),
+                DataAssunzione = new DateTime(2001, 3, 3),
                 Mensilità = 13,
 
-            }
+            };
         }
     }
 }

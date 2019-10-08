@@ -12,6 +12,7 @@ namespace GestioneLavoratori
         public DateTime DataAssunzione;
         public int AnniServizio { get; set; }
         public int StipendioMens;
+        public int RAL { get; set; }
 
         public Lavoratori(string nome, string cognome) : base (nome, cognome)
         {
@@ -19,6 +20,10 @@ namespace GestioneLavoratori
             RAL = 0;
             StipendioMens = 1500;
             AnniServizio = 0;
+        }
+        public Lavoratori(string nome, string cognome, DateTime dataNascita, string genere): base (nome,cognome,dataNascita,genere)
+        {
+
         }
 
         public override string GetDettaglioPersona()
@@ -36,6 +41,11 @@ namespace GestioneLavoratori
         public virtual int CalcoloStipendio(int mensilità)
         {
             return RAL = StipendioMens*mensilità;
+        }
+
+        public virtual string GetFinancial()
+        {
+            return GetDettaglioPersona();
         }
         
     }
