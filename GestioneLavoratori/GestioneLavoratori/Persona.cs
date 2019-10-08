@@ -13,6 +13,10 @@ namespace GestioneLavoratori
         public DateTime DataNascita { get; set; }
         public int Anni { get; set; }
         public string Genere { get; set; }
+        public Persona()
+        {
+
+        }
 
         public Persona(string nome, string cognome)
         {

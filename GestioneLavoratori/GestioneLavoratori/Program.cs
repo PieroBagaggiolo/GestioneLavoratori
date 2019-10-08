@@ -29,27 +29,44 @@ namespace GestioneLavoratori
                 System.Environment.NewLine + d1.GetDettaglioPersona()+ 
                 System.Environment.NewLine + d1.GetFinancial());*/
 
-            string scelta;
-            int quanto;
-            Console.WriteLine("Vuoi inserire lavoratori dipendenti (d) o lavoratori autonomi (a)?");
-            scelta = Console.ReadLine();
-            do
-            {
-                if (scelta == "d")
+            int scelta, quanto;
+            
+            Console.WriteLine("Vuoi inserire lavoratori dipendenti (1) o lavoratori autonomi (2)?" 
+                + Environment.NewLine + "Premi 0 per chiudere");
+            scelta = Int32.Parse(Console.ReadLine());
+            string nomi, cognomi, generi;
+            int mensilita, stipMens, gg,mm,yy;
+                if (scelta == 1)
                 {
-
+                    Console.WriteLine("Quanti vuoi inserirne?");
+                    quanto = Int32.Parse(Console.ReadLine());
+                    Autonomi a[] = new Autonomi()[quanto];
                 }
-                else if (scelta == "a")
+                else if (scelta == 2)
                 {
+                    Console.WriteLine("Quanti vuoi inserirne?");
+                    quanto = Int32.Parse(Console.ReadLine());
+                    Dipendenti d[] = new Dipendenti()[quanto];  
+                    for(int i = 0; i<quanto; i++)
+                    {
+                        Console.WriteLine("Nome: ");
+                        
 
+                    }
+                }
+                else if(scelta == 0)
+                {
+                return;
                 }
                 else
                 {
                     Console.WriteLine("L'opzione non è contemplata." + Environment.NewLine + "Inserisci (a) per lavoratori autonomi " +
                         "oppure (d) per lavoratori dipendenti");
                 }
-            }
-            while (scelta != "d" || scelta != "a");
+            
+            
+
+            //Console.WriteLine("");
 
             Console.ReadLine();
         }

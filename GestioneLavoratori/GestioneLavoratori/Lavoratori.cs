@@ -13,7 +13,10 @@ namespace GestioneLavoratori
         public int AnniServizio { get; set; }
         public int StipendioMens;
         public int Mensilita { get; set; }
+        public Lavoratori() : base ()
+        {
 
+        }
         public Lavoratori(string nome, string cognome ,int mensilita, int stipendioMensile, DateTime dN, DateTime dA) : 
             base (nome, cognome, dN)
         {
