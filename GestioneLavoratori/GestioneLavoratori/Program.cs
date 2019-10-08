@@ -38,19 +38,42 @@ namespace GestioneLavoratori
             Lavoratori[] lavoratori = new Lavoratori[quanto];
             for (int i=0; i < quanto; i++)
             {
-                int mensilita, stipMens, gN,mN,yN, gA, mA, yA;
                 Console.WriteLine("Inserisci il nome: ");
                 string nome = Console.ReadLine();
                 Console.WriteLine("Inserisci il cognome: ");
                 string cognome = Console.ReadLine();
                 Console.WriteLine("Inserisci il sesso: ");
                 string genere = Console.ReadLine();
+                Console.WriteLine("Inserisci la data di nascita: ");
+                Console.WriteLine("Giorno:");
+                int gN = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Mese:");
+                int mN = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Anno:");
+                int yN = Int32.Parse(Console.ReadLine());
+                DateTime natoIl = new DateTime(yN, mN, gN);
+                Console.WriteLine("Inserisci la data di assunzione: ");
+                Console.WriteLine("Giorno:");
+                int gA = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Mese:");
+                int mA = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Anno:");
+                int yA = Int32.Parse(Console.ReadLine());
+                DateTime assunzione = new DateTime(yN, mN, gN);
+                Console.WriteLine("Inserisci lo stipendio mensile: ");
+                int stipMens = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Inserisci la mensilità: ");
+                int mensilita = Int32.Parse(Console.ReadLine());
 
                 Console.WriteLine("Vuoi inserire un lavoratore dipendente(1) o autonomo(2)?");
                 int tipo = Int32.Parse(Console.ReadLine());
                 if (tipo == 1)
                 {
-                    Autonomi aut = new
+                    Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione);
+                }
+                else if(tipo == 2)
+                {
+                    Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
                 }
             }
             
