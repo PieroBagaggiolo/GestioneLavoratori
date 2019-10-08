@@ -14,38 +14,29 @@ namespace GestioneLavoratori
         public int StipendioMens;
         public int Mensilita { get; set; }
 
-        public Lavoratori(string nome, string cognome ,int mensilita) : base (nome, cognome)
+        public Lavoratori(string nome, string cognome ,int mensilita, int stipendioMensile) : base (nome, cognome)
         {
             DataAssunzione = DateTime.Now;
-            StipendioMens = 1500;
-            AnniServizio = 0;
+            StipendioMens = stipendioMensile;
             Mensilita = mensilita;
-
+            Anni = CalcolaAnni();
             RAL = StipendioMens * Mensilita;
+            AnniServizio = DateTime.Now.Year - DataAssunzione.Year;
         }
 
         public override string GetDettaglioPersona()
         {
-            return base.GetDettaglioPersona() + 
-                Environment.NewLine + StipendioMens + 
-                Environment.NewLine + DataAssunzione +
-                Environment.NewLine + AnniServizio + 
-                Environment.NewLine + Mensilita+
-                Environment.;
-        }
-
-        public override int CalcolaAnni()
-        {
-            return base.CalcolaAnni();
+            return base.GetDettaglioPersona() + Environment.NewLine +
+                "Stipendio mensile: "  + StipendioMens + Environment.NewLine +
+                "Assunto il: "  + DataAssunzione + Environment.NewLine +
+                "Anni di servizio: "  + AnniServizio + Environment.NewLine +
+                "Mensilità: " + Mensilita+ Environment.NewLine +
+                "Salario mensile: " + StipendioMens + Environment.NewLine +
+                "RAL: "  + RAL ;
         }
         public virtual int CalcoloStipendio(int mensilità)
         {
             return RAL = StipendioMens*mensilità;
-        }
-
-        public virtual string GetFinancial()
-        {
-            return GetDettaglioPersona();
         }
         
     }

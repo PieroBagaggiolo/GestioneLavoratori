@@ -8,22 +8,22 @@ namespace GestioneLavoratori
 {
     class Autonomi : Lavoratori
     {
-        public double Tasse { get; set; }
-        public Autonomi(string nome, string cognome ,int mensilita) : base(nome, cognome, mensilita)
+        public decimal Tasse { get; set; }
+        public Autonomi(string nome, string cognome ,int mensilita, int stipendioMensile) : base(nome, cognome, mensilita, stipendioMensile)
         {
             if (RAL < 50000)
             {
-                Tasse = RAL / (15 / 100);
+                Tasse = RAL / (100*15);
             }
             else if (RAL >= 500000)
             {
-                Tasse = RAL / (30 / 100);
+                Tasse = RAL / (100*30);
             }
         }
 
-        public override string GetDettaglioPersona()
+        public string GetFinancial()
         {
-            return base.GetDettaglioPersona() + Tasse;
+            return "Tasse: " + Tasse;
         }
     }
 }

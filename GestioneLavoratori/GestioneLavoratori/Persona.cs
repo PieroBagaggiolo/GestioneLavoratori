@@ -35,11 +35,11 @@ namespace GestioneLavoratori
         public virtual string GetDettaglioPersona()
         {
             return
-                Nome + System.Environment.NewLine +
-                Cognome + System.Environment.NewLine +
-                Anni + System.Environment.NewLine +
-                Genere + System.Environment.NewLine +
-                DataNascita;
+                "Nome: " + Nome + System.Environment.NewLine +
+                "Cognome: " + Cognome + System.Environment.NewLine +
+                "Età: " + Anni + System.Environment.NewLine +
+                "Genere: " + Genere + System.Environment.NewLine +
+                "Nato il: " + DataNascita;
         }
 
         public virtual int CalcolaAnni()
