@@ -77,7 +77,7 @@ namespace GestioneLavoratori
                 else if(tipo == 2)
                 {
                     Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
-                    tasse[i] = aut.tasse;
+                    tasse[i] = dip.tasse;
                     lavoratori[i] = (Lavoratori)dip;
                 }
             }//inserimento lavoratori
@@ -130,7 +130,7 @@ namespace GestioneLavoratori
             }
            for(int i=0;i<lavoratori.Length;i++)
             {
-                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ " " + tasse[i] + Environment.NewLine);
+                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine+" Tasse: " + tasse[i] + Environment.NewLine);
             }
             
             
