@@ -17,7 +17,7 @@ namespace GestioneLavoratori
         {
             DataAssunzione = DateTime.Now;
             RAL = 0;
-            StipendioMens = 0;
+            StipendioMens = 1500;
             AnniServizio = 0;
         }
 
