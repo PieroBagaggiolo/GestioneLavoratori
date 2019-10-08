@@ -92,16 +92,42 @@ namespace GestioneLavoratori
                         {
                             index = j;
                         }
+                        Lavoratori temp = new Lavoratori();
+                        temp = lavoratori[index];
+                        lavoratori[index] = lavoratori[i];
+                        lavoratori[i] = temp;
+
                     }
+                    
                 }
             }
             else if(scelta == 2)
+            {
+                for (int i = 0; i < lavoratori.Length; i++)
+                {
+                    int index = i;
+                    for (int j = i + 1; j < lavoratori.Length; j++)
+                    {
+                        if (lavoratori[j].AnniServizio < lavoratori[index].AnniServizio)
+                        {
+                            index = j;
+                        }
+                        Lavoratori temp = new Lavoratori();
+                        temp = lavoratori[index];
+                        lavoratori[index] = lavoratori[i];
+                        lavoratori[i] = temp;
+
+                    }
+
+                }
+            }
+            else
             {
 
             }
            foreach(var lavoratore in lavoratori)
             {
-                Console.WriteLine(lavoratore.GetDettaglioPersona()+Environment.NewLine+);
+                Console.WriteLine(lavoratore.GetDettaglioPersona()+Environment.NewLine);
             }
             
             
