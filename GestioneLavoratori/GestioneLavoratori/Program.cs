@@ -29,40 +29,30 @@ namespace GestioneLavoratori
                 System.Environment.NewLine + d1.GetDettaglioPersona()+ 
                 System.Environment.NewLine + d1.GetFinancial());*/
 
-            int scelta, quanto;
+            int quanto;
             
-            Console.WriteLine("Vuoi inserire lavoratori dipendenti (1) o lavoratori autonomi (2)?" 
-                + Environment.NewLine + "Premi 0 per chiudere");
-            scelta = Int32.Parse(Console.ReadLine());
-            string nomi, cognomi, generi;
-            int mensilita, stipMens, gg,mm,yy;
-                if (scelta == 1)
-                {
-                    Console.WriteLine("Quanti vuoi inserirne?");
-                    quanto = Int32.Parse(Console.ReadLine());
-                    Autonomi a[] = new Autonomi()[quanto];
-                }
-                else if (scelta == 2)
-                {
-                    Console.WriteLine("Quanti vuoi inserirne?");
-                    quanto = Int32.Parse(Console.ReadLine());
-                    Dipendenti d[] = new Dipendenti()[quanto];  
-                    for(int i = 0; i<quanto; i++)
-                    {
-                        Console.WriteLine("Nome: ");
-                        
+            Console.WriteLine("Quanti lavoratori vuoi inserire?");
+            quanto = Int32.Parse(Console.ReadLine());
+            
 
-                    }
-                }
-                else if(scelta == 0)
+            Lavoratori[] lavoratori = new Lavoratori[quanto];
+            for (int i=0; i < quanto; i++)
+            {
+                int mensilita, stipMens, gN,mN,yN, gA, mA, yA;
+                Console.WriteLine("Inserisci il nome: ");
+                string nome = Console.ReadLine();
+                Console.WriteLine("Inserisci il cognome: ");
+                string cognome = Console.ReadLine();
+                Console.WriteLine("Inserisci il sesso: ");
+                string genere = Console.ReadLine();
+
+                Console.WriteLine("Vuoi inserire un lavoratore dipendente(1) o autonomo(2)?");
+                int tipo = Int32.Parse(Console.ReadLine());
+                if (tipo == 1)
                 {
-                return;
+                    Autonomi aut = new
                 }
-                else
-                {
-                    Console.WriteLine("L'opzione non è contemplata." + Environment.NewLine + "Inserisci (a) per lavoratori autonomi " +
-                        "oppure (d) per lavoratori dipendenti");
-                }
+            }
             
             
 
