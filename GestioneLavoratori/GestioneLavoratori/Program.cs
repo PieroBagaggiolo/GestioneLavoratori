@@ -70,13 +70,13 @@ namespace GestioneLavoratori
                 if (tipologia == 1)
                 {
                     Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione, genere, tax);
-                    lavoratori[i] = (Lavoratori)aut;
+                    lavoratori[i] = aut;
 
                 }
                 else if(tipologia == 2)
                 {
                     Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione, genere, tax );
-                    lavoratori[i] = (Lavoratori)dip;
+                    lavoratori[i] = dip;
                 }
             }//inserimento lavoratori
 
@@ -124,7 +124,7 @@ namespace GestioneLavoratori
             }
             else
             {
-
+                Console.WriteLine("L'opzione inserita non è concepita, riprovare");
             }
            for(int i=0;i<lavoratori.Length;i++)//stampa a schermo dei risultati
             {
