@@ -11,7 +11,7 @@ namespace GestioneLavoratori
         public decimal Tasse { get; set; }
         public Dipendenti(string nome, string cognome, int mensilita, int stipendioMensile, DateTime dn, DateTime dA, string genere, decimal tasse) 
             : base(nome, cognome, mensilita, stipendioMensile, dn, dA, genere)
-        {
+        {//calcolo delle tasse
             if (0 < RAL || RAL < 6000)
             {
                 tasse = 0;

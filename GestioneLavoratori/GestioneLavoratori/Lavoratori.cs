@@ -29,7 +29,6 @@ namespace GestioneLavoratori
             RAL = StipendioMens * Mensilita;
             AnniServizio = DateTime.Now.Year - DataAssunzione.Year;
         }
-
         public override string GetDettaglioPersona()
         {
             return base.GetDettaglioPersona() + Environment.NewLine +

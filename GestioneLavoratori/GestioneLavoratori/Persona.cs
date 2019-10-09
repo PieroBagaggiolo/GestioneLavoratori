@@ -17,7 +17,6 @@ namespace GestioneLavoratori
         {
 
         }
-
         public Persona(string nome, string cognome)
         {
             Nome = nome;
@@ -30,10 +29,8 @@ namespace GestioneLavoratori
             Cognome = cognome;
             dataNascita = DataNascita;
             genere = Genere;
-            var AnnoAtt = DateTime.Now.Year;
-            var AnnoNascita = dataNascita.Year;
 
-            Anni = AnnoAtt - AnnoNascita;
+            Anni = CalcolaAnni();
         }
 
         public virtual string GetDettaglioPersona()
