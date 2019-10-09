@@ -20,6 +20,7 @@ namespace GestioneLavoratori
         public Lavoratori(string nome, string cognome ,int mensilita, int stipendioMensile, DateTime dN, DateTime dA, string gen) : 
             base (nome, cognome, dN, gen)
         {
+            Genere = gen;
             DataAssunzione = dA;
             DataNascita = dN;
             StipendioMens = stipendioMensile;

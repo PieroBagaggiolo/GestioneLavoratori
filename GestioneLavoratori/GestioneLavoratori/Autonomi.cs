@@ -31,7 +31,5 @@ namespace GestioneLavoratori
         {
             return base.GetDettaglioPersona() + Environment.NewLine + "Tasse: " + Tasse;
         }
-
-        
     }
 }
