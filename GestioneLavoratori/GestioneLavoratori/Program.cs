@@ -67,17 +67,18 @@ namespace GestioneLavoratori
 
                 Console.WriteLine("Vuoi inserire un lavoratore dipendente(1) o autonomo(2)?");
                 int tipo = Int32.Parse(Console.ReadLine());
+                decimal tax = 0;
                 if (tipo == 1)
                 {
-                    Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione);
-                    tasse[i] = aut.tasse;
+                    Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione, genere, tax);
+                    tasse[i] = aut.Tasse;
                     lavoratori[i] = (Lavoratori)aut;
 
                 }
                 else if(tipo == 2)
                 {
-                    Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
-                    tasse[i] = dip.tasse;
+                    Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione, genere, tax );
+                    tasse[i] = dip.Tasse;
                     lavoratori[i] = (Lavoratori)dip;
                 }
             }//inserimento lavoratori
@@ -91,7 +92,7 @@ namespace GestioneLavoratori
                     int index = i;
                     for(int j = i+1; j<lavoratori.Length;j++)
                     {
-                        if(lavoratori[j].StipendioMens<lavoratori[index].StipendioMens)
+                        if(lavoratori[j].StipendioMens < lavoratori[index].StipendioMens)
                         {
                             index = j;
                         }
@@ -130,7 +131,7 @@ namespace GestioneLavoratori
             }
            for(int i=0;i<lavoratori.Length;i++)
             {
-                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine+" Tasse: " + tasse[i] + Environment.NewLine);
+                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine);
             }
             
             

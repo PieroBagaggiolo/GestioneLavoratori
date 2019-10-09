@@ -13,22 +13,25 @@ namespace GestioneLavoratori
         {
 
         }
-        public Autonomi(string nome, string cognome ,int mensilita, int stipendioMensile, DateTime dN, DateTime dA) 
-            : base(nome, cognome, mensilita, stipendioMensile, dN, dA)
+        public Autonomi(string nome, string cognome ,int mensilita, int stipendioMensile, DateTime dN, DateTime dA, string genere, decimal tasse) 
+            : base(nome, cognome, mensilita, stipendioMensile, dN, dA, genere)
         {
             if (RAL < 50000)
             {
-                Tasse = RAL / (100*15);
+                tasse = RAL / (100 * 15);
             }
             else if (RAL >= 500000)
             {
-                Tasse = RAL / (100*30);
+                tasse = RAL / (100*30);
             }
+            Tasse = tasse;
         }
 
-        public string GetFinancial()
+        public override string GetDettaglioPersona()
         {
-            return "Tasse: " + Tasse;
+            return base.GetDettaglioPersona() + Environment.NewLine + "Tasse: " + Tasse;
         }
+
+        
     }
 }
