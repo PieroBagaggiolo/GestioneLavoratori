@@ -32,22 +32,21 @@ namespace GestioneLavoratori
             int quanto;
             
             Console.WriteLine("Quanti lavoratori vuoi inserire?");
-            quanto = Int32.Parse(Console.ReadLine());//eccezzione 1
+            try
+            {
+                quanto = Int32.Parse(Console.ReadLine());
+            }
+            catch(FormatException ex)
+            {
+                throw new CustomException("Il valore inserito non va bene. Inseriscine uno valido.",ex);
+            }
+            //eccezzione 1
             decimal[] tasse = new decimal[quanto];
 
             Lavoratori[] lavoratori = new Lavoratori[quanto];
             for (int i=0; i < quanto; i++)
             {
-                Console.WriteLine("Inserisci il nome: ");
-                try
-                {
-                    string nome = Console.ReadLine();
-                }
-                catch(CustomException ex)
-                {
-
-                }
-                
+                string nome = Console.ReadLine();
                 Console.WriteLine("Inserisci il cognome: ");
                 string cognome = Console.ReadLine();
                 Console.WriteLine("Inserisci il sesso: ");
@@ -140,9 +139,6 @@ namespace GestioneLavoratori
             {
                 Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine+" Tasse: " + tasse[i] + Environment.NewLine);
             }
-            
-            
-
             //Console.WriteLine("");
 
             Console.ReadLine();

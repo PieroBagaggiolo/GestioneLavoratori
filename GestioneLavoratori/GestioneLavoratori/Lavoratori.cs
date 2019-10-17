@@ -44,6 +44,5 @@ namespace GestioneLavoratori
         {
             return RAL = StipendioMens*mensilità;
         }
-        
     }
 }

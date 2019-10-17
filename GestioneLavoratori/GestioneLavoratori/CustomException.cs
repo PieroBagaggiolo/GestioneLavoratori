@@ -21,7 +21,6 @@ namespace GestioneLavoratori
         public CustomException(string message, Exception innerException) : base(message, innerException)
         {
 
-
         }
     }
 }
