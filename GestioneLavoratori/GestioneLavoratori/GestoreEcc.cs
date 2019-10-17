@@ -11,8 +11,8 @@ namespace GestioneLavoratori
         /// <summary>
         /// 
         /// </summary>
-        public int Valore { get; private set; }
-        public void Passaggio(string elemento)
+        private int Valore { get; set; }
+        public void Coversione(string elemento)
         {
 
             try
@@ -27,14 +27,15 @@ namespace GestioneLavoratori
             {
                 throw new CustomException("Il valore è troppo grande o piccolo, inserire un valore corretto", ex);
             }
-            catch (FormatException ex)
-            {
-                throw new CustomException("Il valore inserito non va bene, inserisci un valore numerico", ex);
-            }
+            //catch (FormatException ex)
+            //{
+            //    throw new CustomException("Il valore inserito non va bene, inserisci un valore numerico", ex);
+            //}
             catch
             {
                 throw;
             }
         }
+
     }
 }

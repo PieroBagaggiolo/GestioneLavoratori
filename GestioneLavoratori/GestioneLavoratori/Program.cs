@@ -11,10 +11,11 @@ namespace GestioneLavoratori
         static void Main(string[] args)
         {
             string quanto;
+            GestoreEcc g1 = new GestoreEcc();
             Console.WriteLine("Quanti lavoratori vuoi inserire?");
             quanto = (Console.ReadLine());
-            int el = Passaggio(quanto);
-            
+            g1.Coversione(quanto);
+            int el = Int32.Parse(quanto);
             //eccezzione 1
             decimal[] tasse = new decimal[el];
 
