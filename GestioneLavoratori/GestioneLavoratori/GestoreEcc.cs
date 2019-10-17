@@ -9,12 +9,11 @@ namespace GestioneLavoratori
     class GestoreEcc
     {
         /// <summary>
-        /// 
+        /// classe per la gestione della gestione degli input numerici
         /// </summary>
         private int Valore { get; set; }
         public void Coversione(string elemento)
         {
-
             try
             {
                 Valore = Int32.Parse(elemento);
@@ -27,10 +26,10 @@ namespace GestioneLavoratori
             {
                 throw new CustomException("Il valore è troppo grande o piccolo, inserire un valore corretto", ex);
             }
-            //catch (FormatException ex)
-            //{
-            //    throw new CustomException("Il valore inserito non va bene, inserisci un valore numerico", ex);
-            //}
+            catch (FormatException ex)
+            {
+                throw new CustomException("Il valore inserito non va bene, inserisci un valore numerico", ex);
+            }
             catch
             {
                 throw;
