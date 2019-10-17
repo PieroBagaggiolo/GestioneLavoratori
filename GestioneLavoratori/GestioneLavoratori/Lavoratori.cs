@@ -13,14 +13,14 @@ namespace GestioneLavoratori
         public int AnniServizio { get; set; }
         public int StipendioMens;
         public int Mensilita { get; set; }
-        public decimal tasse { get; set; }
         public Lavoratori() : base ()
         {
 
         }
-        public Lavoratori(string nome, string cognome ,int mensilita, int stipendioMensile, DateTime dN, DateTime dA) : 
-            base (nome, cognome, dN)
+        public Lavoratori(string nome, string cognome ,int mensilita, int stipendioMensile, DateTime dN, DateTime dA, string gen) : 
+            base (nome, cognome, dN, gen)
         {
+            Genere = gen;
             DataAssunzione = dA;
             DataNascita = dN;
             StipendioMens = stipendioMensile;
@@ -30,6 +30,7 @@ namespace GestioneLavoratori
             AnniServizio = DateTime.Now.Year - DataAssunzione.Year;
         }
 
+        
         public override string GetDettaglioPersona()
         {
             return base.GetDettaglioPersona() + Environment.NewLine +

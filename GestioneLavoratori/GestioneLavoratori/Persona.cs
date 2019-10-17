@@ -17,22 +17,20 @@ namespace GestioneLavoratori
         {
 
         }
-
         public Persona(string nome, string cognome)
         {
             Nome = nome;
             Cognome = cognome;
         }
-        public Persona(string nome, string cognome, DateTime dataNascita)
+
+        public Persona(string nome, string cognome, DateTime dataNascita, string genere)
         {
             Nome = nome;
             Cognome = cognome;
             dataNascita = DataNascita;
+            genere = Genere;
 
-            var AnnoAtt = DateTime.Now.Year;
-            var AnnoNascita = dataNascita.Year;
-
-            Anni = AnnoAtt - AnnoNascita;
+            Anni = CalcolaAnni();
         }
 
         public virtual string GetDettaglioPersona()

@@ -33,7 +33,6 @@ namespace GestioneLavoratori
             
             Console.WriteLine("Quanti lavoratori vuoi inserire?");
             quanto = Int32.Parse(Console.ReadLine());
-            decimal[] tasse = new decimal[quanto];
 
             Lavoratori[] lavoratori = new Lavoratori[quanto];
             for (int i=0; i < quanto; i++)
@@ -66,32 +65,31 @@ namespace GestioneLavoratori
                 int mensilita = Int32.Parse(Console.ReadLine());
 
                 Console.WriteLine("Vuoi inserire un lavoratore dipendente(1) o autonomo(2)?");
-                int tipo = Int32.Parse(Console.ReadLine());
-                if (tipo == 1)
+                int tipologia = Int32.Parse(Console.ReadLine());
+                decimal tax = 0;
+                if (tipologia == 1)
                 {
-                    Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione);
-                    tasse[i] = aut.tasse;
-                    lavoratori[i] = (Lavoratori)aut;
+                    Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione, genere, tax);
+                    lavoratori[i] = aut;
 
                 }
-                else if(tipo == 2)
+                else if(tipologia == 2)
                 {
-                    Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
-                    tasse[i] = dip.tasse;
-                    lavoratori[i] = (Lavoratori)dip;
+                    Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione, genere, tax );
+                    lavoratori[i] = dip;
                 }
             }//inserimento lavoratori
 
             Console.WriteLine("Gli vuoi ordinati per stipendio(1) o per anzianità?(2)");
             int scelta = Int32.Parse(Console.ReadLine());
-            if(scelta == 1)
+            if(scelta == 1)//ordinamento per dallo stipendio più basso a quello più alto
             {
                 for(int i = 0; i<lavoratori.Length; i++)
                 {
                     int index = i;
                     for(int j = i+1; j<lavoratori.Length;j++)
                     {
-                        if(lavoratori[j].StipendioMens<lavoratori[index].StipendioMens)
+                        if(lavoratori[j].StipendioMens < lavoratori[index].StipendioMens)
                         {
                             index = j;
                         }
@@ -104,7 +102,7 @@ namespace GestioneLavoratori
                     
                 }
             }
-            else if(scelta == 2)
+            else if(scelta == 2)//ordinamento dal più giovane al più vecchio
             {
                 for (int i = 0; i < lavoratori.Length; i++)
                 {
@@ -126,11 +124,11 @@ namespace GestioneLavoratori
             }
             else
             {
-
+                Console.WriteLine("L'opzione inserita non è concepita, riprovare");
             }
-           for(int i=0;i<lavoratori.Length;i++)
+           for(int i=0;i<lavoratori.Length;i++)//stampa a schermo dei risultati
             {
-                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine+" Tasse: " + tasse[i] + Environment.NewLine);
+                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine);
             }
             
             
