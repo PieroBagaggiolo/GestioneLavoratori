@@ -10,43 +10,20 @@ namespace GestioneLavoratori
     {
         static void Main(string[] args)
         {
-          /*  Autonomi a1 = new Autonomi("Paolo", "Verdi", 12, 1200, new DateTime(1960, 12, 1), new DateTime(1981, 11, 21))
-            {
-                Genere = "M",
-            };
-
-            Dipendenti d1 = new Dipendenti("Marco", "Domodossola", 13, 1300,
-               new DateTime(1985, 5, 21), new DateTime(2001, 3, 3))
-            {
-                Genere = "M",
-            };
-
-            Console.WriteLine("I dettagli del lavoratore a1 sono: " +
-                System.Environment.NewLine + a1.GetDettaglioPersona() +
-                 System.Environment.NewLine + a1.GetFinancial()
-                );
-            Console.WriteLine("I dettagli del lavoratore d1 sono: " + 
-                System.Environment.NewLine + d1.GetDettaglioPersona()+ 
-                System.Environment.NewLine + d1.GetFinancial());*/
-
-            int quanto;
-            
+            string quanto;
             Console.WriteLine("Quanti lavoratori vuoi inserire?");
-            try
-            {
-                quanto = Int32.Parse(Console.ReadLine());
-            }
-            catch(FormatException ex)
-            {
-                throw new CustomException("Il valore inserito non va bene. Inseriscine uno valido.",ex);
-            }
+            quanto = (Console.ReadLine());
+            int el = Passaggio(quanto);
+            
             //eccezzione 1
-            decimal[] tasse = new decimal[quanto];
+            decimal[] tasse = new decimal[el];
 
-            Lavoratori[] lavoratori = new Lavoratori[quanto];
-            for (int i=0; i < quanto; i++)
+            Lavoratori[] lavoratori = new Lavoratori[el];
+            for (int i=0; i < el; i++)
             {
+                Console.WriteLine("Inserisci il nome");
                 string nome = Console.ReadLine();
+
                 Console.WriteLine("Inserisci il cognome: ");
                 string cognome = Console.ReadLine();
                 Console.WriteLine("Inserisci il sesso: ");
