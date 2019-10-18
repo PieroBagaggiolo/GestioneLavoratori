@@ -30,6 +30,10 @@ namespace GestioneLavoratori
             {
                 throw new CustomException("Il valore inserito non va bene, inserisci un valore numerico", ex);
             }
+            catch(NullReferenceException ex)
+            {
+                throw new CustomException("Oggetto pari a null, impossibile procedere", ex);
+            }
             catch
             {
                 throw;

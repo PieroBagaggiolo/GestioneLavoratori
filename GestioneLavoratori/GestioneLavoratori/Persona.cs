@@ -74,9 +74,9 @@ namespace GestioneLavoratori
                 valore = Console.ReadLine();
                 return valore;
             }
-            catch(Exception ex)
+            catch(NullReferenceException ex)
             {
-                throw new CustomException("Hai sbagliato qualcosa",ex);
+                throw new CustomException("Valore vuoto",ex);
             }
         }
         public virtual int CalcolaAnni()

@@ -16,7 +16,6 @@ namespace GestioneLavoratori
         {
             int quanto = 0;
             decimal[] tasse = null;
-            Lavoratori[] lavoratori = null;
             GestoreEcc g1 = new GestoreEcc();
             Console.WriteLine("Quanti lavoratori vuoi inserire?");
             string num = (Console.ReadLine());
@@ -24,30 +23,24 @@ namespace GestioneLavoratori
             {
                 g1.Coversione(num);
                 quanto = Int32.Parse(num);
-                tasse = new decimal[quanto];
-                lavoratori = new Lavoratori[quanto];
             }
             catch(CustomException ex)
             {
                 Console.WriteLine("Rilevato errore");
                 Console.WriteLine(ex.Message);
             }
-            
+            tasse = new decimal[quanto];
+            Lavoratori[] lavoratori = new Lavoratori[quanto];
             for (int i=0; i < quanto; i++)
             {
-                string nome = null, cognome, genere;
+                string nome = "", cognome = "", genere = "";
                 int gA=0, mA = 0, yA = 0, gN = 0, mN = 0, yN = 0, stipMens = 0, mensilita = 0;
                 DateTime assunzione = new DateTime();
                 DateTime nascita = new DateTime();
-                Console.WriteLine("Inserisci il nome");
                 lavoratori[i].Nome = lavoratori[i].DatiAnagrafici("nome", nome);
-
-                Console.WriteLine("Inserisci il cognome: ");
-                cognome = Console.ReadLine();
-                Console.WriteLine("Inserisci il sesso: ");
-                genere = Console.ReadLine();
+                lavoratori[i].Cognome = lavoratori[i].DatiAnagrafici("cognome", cognome);
+                lavoratori[i].Genere = lavoratori[i].DatiAnagrafici("sesso", genere);
                 Console.WriteLine("Inserisci la data di nascita: ");
-                Console.WriteLine("Giorno:");
                 lavoratori[i].DataNascita = lavoratori[i].AddData(gN, mN, yN, nascita);
                 Console.WriteLine("Inserisci la data di assunzione: ");
                 lavoratori[i].DataNascita = lavoratori[i].AddData(gA,mA, yA, assunzione);

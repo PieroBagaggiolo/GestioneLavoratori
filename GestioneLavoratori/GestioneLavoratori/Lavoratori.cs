@@ -68,7 +68,7 @@ namespace GestioneLavoratori
             }
             catch(Exception ex)
             {
-
+                throw (new CustomException("Something's wrong", ex));
             }
         }
 
