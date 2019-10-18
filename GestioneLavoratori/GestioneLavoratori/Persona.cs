@@ -66,10 +66,19 @@ namespace GestioneLavoratori
             }
         }
 
-        //public virtual string DatiAnagrafici(string nome, string cognome, string genere)
-        //{
-
-        //}
+        public virtual string DatiAnagrafici(string campo, string valore)
+        {
+            try
+            {
+                Console.WriteLine("Inserisci il "+ campo + ": ");
+                valore = Console.ReadLine();
+                return valore;
+            }
+            catch(Exception ex)
+            {
+                throw new CustomException("Hai sbagliato qualcosa",ex);
+            }
+        }
         public virtual int CalcolaAnni()
         {
             int result = DateTime.Now.Year - DataNascita.Year;

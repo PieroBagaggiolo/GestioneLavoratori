@@ -35,12 +35,12 @@ namespace GestioneLavoratori
             
             for (int i=0; i < quanto; i++)
             {
-                string nome, cognome, genere;
+                string nome = null, cognome, genere;
                 int gA=0, mA = 0, yA = 0, gN = 0, mN = 0, yN = 0, stipMens = 0, mensilita = 0;
                 DateTime assunzione = new DateTime();
                 DateTime nascita = new DateTime();
                 Console.WriteLine("Inserisci il nome");
-                nome = Console.ReadLine();
+                lavoratori[i].Nome = lavoratori[i].DatiAnagrafici("nome", nome);
 
                 Console.WriteLine("Inserisci il cognome: ");
                 cognome = Console.ReadLine();
@@ -97,7 +97,6 @@ namespace GestioneLavoratori
                                     temp = lavoratori[index];
                                     lavoratori[index] = lavoratori[i];
                                     lavoratori[i] = temp;
-
                                 }
                     
                             }

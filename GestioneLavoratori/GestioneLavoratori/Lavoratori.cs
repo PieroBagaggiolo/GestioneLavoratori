@@ -44,17 +44,34 @@ namespace GestioneLavoratori
         {
             return RAL = StipendioMens*mensilità;
         }
-        public void Ordinamento(int scelta, int indice)
+        
+        public override string DatiAnagrafici(string campo, string valore)
         {
-            try
-            {
-
-            }
-            catch
+            return base.DatiAnagrafici(campo, valore);
         }
         public override DateTime AddData(int gg, int mm, int yyyy, DateTime data)
         {
             return base.AddData(gg, mm, yyyy, data);
         }
+        public void Ordinamento(int scelta, int indice)
+        {
+            try
+            {
+                if(scelta == 1)
+                {
+
+                }
+                else if(scelta == 2)
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        
     }
 }
