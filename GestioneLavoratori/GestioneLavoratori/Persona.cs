@@ -65,7 +65,12 @@ namespace GestioneLavoratori
                 throw new CustomException("Il valore inserito è troppo piccolo o troppo grande", ex);
             }
         }
-
+        /// <summary>
+        /// Ideato allo scopo di inserire i valori di tipo stringa e gestirne al contempo le eccezzioni
+        /// </summary>
+        /// <param name="campo"></param>
+        /// <param name="valore"></param>
+        /// <returns></returns>
         public virtual string DatiAnagrafici(string campo, string valore)
         {
             try

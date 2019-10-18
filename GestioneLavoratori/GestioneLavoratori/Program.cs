@@ -33,17 +33,18 @@ namespace GestioneLavoratori
             Lavoratori[] lavoratori = new Lavoratori[quanto];
             for (int i=0; i < quanto; i++)
             {
-                string nome = "", cognome = "", genere = "";
+                Lavoratori worker = new Lavoratori();
+                string nome = "A", cognome = "", genere = "";
                 int gA=0, mA = 0, yA = 0, gN = 0, mN = 0, yN = 0, stipMens = 0, mensilita = 0;
                 DateTime assunzione = new DateTime();
                 DateTime nascita = new DateTime();
-                lavoratori[i].Nome = lavoratori[i].DatiAnagrafici("nome", nome);
-                lavoratori[i].Cognome = lavoratori[i].DatiAnagrafici("cognome", cognome);
-                lavoratori[i].Genere = lavoratori[i].DatiAnagrafici("sesso", genere);
+                nome = worker.DatiAnagrafici("nome", nome);
+                cognome = worker.DatiAnagrafici("cognome", cognome);
+                genere = worker.DatiAnagrafici("sesso", genere);
                 Console.WriteLine("Inserisci la data di nascita: ");
-                lavoratori[i].DataNascita = lavoratori[i].AddData(gN, mN, yN, nascita);
+                nascita = worker.AddData(gN, mN, yN, nascita);
                 Console.WriteLine("Inserisci la data di assunzione: ");
-                lavoratori[i].DataNascita = lavoratori[i].AddData(gA,mA, yA, assunzione);
+                assunzione = worker.AddData(gA,mA, yA, assunzione);
                 Console.WriteLine("Inserisci lo stipendio mensile: ");
                 stipMens = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Inserisci la mensilità: ");
