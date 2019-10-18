@@ -91,7 +91,6 @@ namespace GestioneLavoratori
                                     lavoratori[index] = lavoratori[i];
                                     lavoratori[i] = temp;
                                 }
-                    
                             }
                         }
                         else if(scelta == 2)

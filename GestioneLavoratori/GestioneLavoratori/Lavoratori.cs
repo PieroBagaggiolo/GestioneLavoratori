@@ -53,17 +53,47 @@ namespace GestioneLavoratori
         {
             return base.AddData(gg, mm, yyyy, data);
         }
-        public void Ordinamento(int scelta, int indice)
+        public void Ordinamento(int scelta, Lavoratori[] workers)
         {
             try
             {
                 if(scelta == 1)
                 {
-
+                    for(int i=0;i<workers.Length; i++)
+                    {
+                        int index = i;
+                        for (int j = i + 1; j < workers.Length; j++)
+                        {
+                            if (workers[j].StipendioMens < workers[index].StipendioMens)
+                            {
+                                index = j;
+                            }
+                            Lavoratori temp = new Lavoratori();
+                            temp = workers[index];
+                            workers[index] = workers[i];
+                            workers[i] = temp;
+                        }
+                    }
                 }
                 else if(scelta == 2)
                 {
+                    for (int i = 0; i <workers.Length; i++)
+                    {
+                        int index = i;
+                        for (int j = i + 1; j < lavoratori.Length; j++)
+                        {
+                            if (lavoratori[j].AnniServizio < lavoratori[index].AnniServizio)
+                            {
+                                index = j;
+                            }
+                            Lavoratori temp = new Lavoratori();
+                            temp = lavoratori[index];
+                            lavoratori[index] = lavoratori[i];
+                            lavoratori[i] = temp;
 
+                        }
+
+                    }
                 }
             }
             catch(Exception ex)
