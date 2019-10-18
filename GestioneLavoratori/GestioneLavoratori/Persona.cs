@@ -37,12 +37,12 @@ namespace GestioneLavoratori
 
         public virtual string GetDettaglioPersona()
         {
-            return
-                "Nome: " + Nome + System.Environment.NewLine +
-                "Cognome: " + Cognome + System.Environment.NewLine +
-                "Età: " + Anni + System.Environment.NewLine +
-                "Genere: " + Genere + System.Environment.NewLine +
-                "Nato il: " + DataNascita;
+            StringBuilder persona = new StringBuilder("Nome: " + Nome + Environment.NewLine);
+            persona.Append("Cognome: " + Cognome + Environment.NewLine);
+            persona.AppendLine("Data di nascita: " + DataNascita.ToString("d") + Environment.NewLine);
+            persona.Append("Età: " + Anni + Environment.NewLine);
+
+            return persona.ToString();
         }
 
         public virtual DateTime AddData(int gg, int mm, int yyyy, DateTime data)

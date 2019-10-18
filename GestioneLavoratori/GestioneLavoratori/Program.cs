@@ -72,50 +72,53 @@ namespace GestioneLavoratori
              /// </summary>
              /// <param name="scelta"></param>
              /// <param name="workers"></param>
-            try
+            if(lavoratori.Length>1)
             {
-                Console.WriteLine("Gli vuoi ordinati per stipendio(1) o per anzianità?(2)");
-                int scelta = Int32.Parse(Console.ReadLine());
-                if(scelta == 1)
+                try
                 {
-                    for(int i = 0; i<lavoratori.Length; i++)
+                    Console.WriteLine("Gli vuoi ordinati per stipendio(1) o per anzianità?(2)");
+                    int scelta = Int32.Parse(Console.ReadLine());
+                    if(scelta == 1)
                     {
-                        int index = i;
-                        for(int j = i+1; j<lavoratori.Length;j++)
+                        for(int i = 0; i<lavoratori.Length; i++)
                         {
-                            if(lavoratori[j].StipendioMens<lavoratori[index].StipendioMens)
+                            int index = i;
+                            for(int j = i+1; j<lavoratori.Length;j++)
                             {
-                                index = j;
+                                if(lavoratori[j].StipendioMens<lavoratori[index].StipendioMens)
+                                {
+                                    index = j;
+                                }
+                                Lavoratori temp = new Lavoratori();
+                                temp = lavoratori[index];
+                                lavoratori[index] = lavoratori[i];
+                                lavoratori[i] = temp;
                             }
-                            Lavoratori temp = new Lavoratori();
-                            temp = lavoratori[index];
-                            lavoratori[index] = lavoratori[i];
-                            lavoratori[i] = temp;
+                        }
+                    }
+                    else if(scelta == 2)
+                    {
+                        for (int i = 0; i < lavoratori.Length; i++)
+                        {
+                            int index = i;
+                            for (int j = i + 1; j < lavoratori.Length; j++)
+                            {
+                                if (lavoratori[j].AnniServizio < lavoratori[index].AnniServizio)
+                                {
+                                    index = j;
+                                }
+                                Lavoratori temp = new Lavoratori();
+                                temp = lavoratori[index];
+                                lavoratori[index] = lavoratori[i];
+                                lavoratori[i] = temp;
+                            }
                         }
                     }
                 }
-                else if(scelta == 2)
+                catch(NullReferenceException ex)
                 {
-                    for (int i = 0; i < lavoratori.Length; i++)
-                    {
-                        int index = i;
-                        for (int j = i + 1; j < lavoratori.Length; j++)
-                        {
-                            if (lavoratori[j].AnniServizio < lavoratori[index].AnniServizio)
-                            {
-                                index = j;
-                            }
-                            Lavoratori temp = new Lavoratori();
-                            temp = lavoratori[index];
-                            lavoratori[index] = lavoratori[i];
-                            lavoratori[i] = temp;
-                        }
-                    }
+                    Console.WriteLine("Non ci sono elementi");
                 }
-            }
-            catch(NullReferenceException ex)
-            {
-                Console.WriteLine("Non ci sono elementi");
             }
             for(int i=0;i<lavoratori.Length;i++)
             {
