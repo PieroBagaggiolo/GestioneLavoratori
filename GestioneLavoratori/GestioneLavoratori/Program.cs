@@ -8,6 +8,10 @@ namespace GestioneLavoratori
 {
     class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             int quanto = 0;
@@ -28,48 +32,42 @@ namespace GestioneLavoratori
                 Console.WriteLine("Rilevato errore");
                 Console.WriteLine(ex.Message);
             }
+            
             for (int i=0; i < quanto; i++)
             {
+                string nome, cognome, genere;
+                int gA=0, mA = 0, yA = 0, gN = 0, mN = 0, yN = 0, stipMens = 0, mensilita = 0;
+                DateTime assunzione = new DateTime();
+                DateTime nascita = new DateTime();
                 Console.WriteLine("Inserisci il nome");
-                string nome = Console.ReadLine();
+                nome = Console.ReadLine();
 
                 Console.WriteLine("Inserisci il cognome: ");
-                string cognome = Console.ReadLine();
+                cognome = Console.ReadLine();
                 Console.WriteLine("Inserisci il sesso: ");
-                string genere = Console.ReadLine();
+                genere = Console.ReadLine();
                 Console.WriteLine("Inserisci la data di nascita: ");
                 Console.WriteLine("Giorno:");
-                int gN = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Mese:");
-                int mN = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Anno:");
-                int yN = Int32.Parse(Console.ReadLine());
-                DateTime natoIl = new DateTime(yN, mN, gN);
+                lavoratori[i].DataNascita = lavoratori[i].AddData(gN, mN, yN, nascita);
                 Console.WriteLine("Inserisci la data di assunzione: ");
-                Console.WriteLine("Giorno:");
-                int gA = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Mese:");
-                int mA = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Anno:");
-                int yA = Int32.Parse(Console.ReadLine());
-                DateTime assunzione = new DateTime(yA, mA, gA);
+                lavoratori[i].DataNascita = lavoratori[i].AddData(gA,mA, yA, assunzione);
                 Console.WriteLine("Inserisci lo stipendio mensile: ");
-                int stipMens = Int32.Parse(Console.ReadLine());
+                stipMens = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Inserisci la mensilità: ");
-                int mensilita = Int32.Parse(Console.ReadLine());
+                mensilita = Int32.Parse(Console.ReadLine());
 
                 Console.WriteLine("Vuoi inserire un lavoratore dipendente(1) o autonomo(2)?");
                 int tipo = Int32.Parse(Console.ReadLine());
                 if (tipo == 1)
                 {
-                    Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, natoIl, assunzione);
+                    Autonomi aut = new Autonomi(nome, cognome, mensilita, stipMens, nascita, assunzione);
                     tasse[i] = aut.tasse;
                     lavoratori[i] = (Lavoratori)aut;
 
                 }
                 else if(tipo == 2)
                 {
-                    Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, natoIl, assunzione);
+                    Dipendenti dip = new Dipendenti(nome, cognome, mensilita, stipMens, nascita, assunzione);
                     tasse[i] = dip.tasse;
                     lavoratori[i] = (Lavoratori)dip;
                 }
