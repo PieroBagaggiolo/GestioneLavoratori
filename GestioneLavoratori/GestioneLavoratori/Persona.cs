@@ -78,6 +78,10 @@ namespace GestioneLavoratori
             {
                 throw new CustomException("Valore vuoto",ex);
             }
+            catch
+            {
+                throw;
+            }
         }
         public virtual int CalcolaAnni()
         {

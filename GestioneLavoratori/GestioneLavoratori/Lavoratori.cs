@@ -53,7 +53,7 @@ namespace GestioneLavoratori
         {
             return base.AddData(gg, mm, yyyy, data);
         }
-        public void Ordinamento(int scelta, Lavoratori[] workers)
+        public  virtual void Ordinamento(int scelta, Lavoratori[] workers)
         {
             try
             {
@@ -80,20 +80,23 @@ namespace GestioneLavoratori
                     for (int i = 0; i <workers.Length; i++)
                     {
                         int index = i;
-                        for (int j = i + 1; j < lavoratori.Length; j++)
+                        for (int j = i + 1; j < workers.Length; j++)
                         {
-                            if (lavoratori[j].AnniServizio < lavoratori[index].AnniServizio)
+                            if (workers[j].AnniServizio < workers[index].AnniServizio)
                             {
                                 index = j;
                             }
                             Lavoratori temp = new Lavoratori();
-                            temp = lavoratori[index];
-                            lavoratori[index] = lavoratori[i];
-                            lavoratori[i] = temp;
+                            temp = workers[index];
+                            workers[index] = workers[i];
+                            workers[i] = temp;
 
                         }
-
                     }
+                }
+                for (int i = 0; i < workers.Length; i++)
+                {
+                    Console.WriteLine(workers[i].GetDettaglioPersona() + Environment.NewLine);
                 }
             }
             catch(Exception ex)
