@@ -30,9 +30,5 @@ namespace GestioneLavoratori
         {
             return "Tasse: " + Tasse;
         }
-        //public override void Ordinamento(int scelta, Lavoratori[] workers)
-        //{
-        //    base.Ordinamento(scelta, workers) + GetFinancial();
-        //}
     }
 }

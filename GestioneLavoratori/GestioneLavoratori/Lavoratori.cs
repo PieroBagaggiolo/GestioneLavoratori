@@ -53,57 +53,8 @@ namespace GestioneLavoratori
         {
             return base.AddData(gg, mm, yyyy, data);
         }
-        public  virtual void Ordinamento(int scelta, Lavoratori[] workers)
-        {
-            try
-            {
-                if(scelta == 1)
-                {
-                    for(int i=0;i<workers.Length; i++)
-                    {
-                        int index = i;
-                        for (int j = i + 1; j < workers.Length; j++)
-                        {
-                            if (workers[j].StipendioMens < workers[index].StipendioMens)
-                            {
-                                index = j;
-                            }
-                            Lavoratori temp = new Lavoratori();
-                            temp = workers[index];
-                            workers[index] = workers[i];
-                            workers[i] = temp;
-                        }
-                    }
-                }
-                else if(scelta == 2)
-                {
-                    for (int i = 0; i <workers.Length; i++)
-                    {
-                        int index = i;
-                        for (int j = i + 1; j < workers.Length; j++)
-                        {
-                            if (workers[j].AnniServizio < workers[index].AnniServizio)
-                            {
-                                index = j;
-                            }
-                            Lavoratori temp = new Lavoratori();
-                            temp = workers[index];
-                            workers[index] = workers[i];
-                            workers[i] = temp;
-
-                        }
-                    }
-                }
-                for (int i = 0; i < workers.Length; i++)
-                {
-                    Console.WriteLine(workers[i].GetDettaglioPersona() + Environment.NewLine);
-                }
-            }
-            catch(Exception ex)
-            {
-                throw (new CustomException("Something's wrong", ex));
-            }
-        }
+        
+       
 
         
     }

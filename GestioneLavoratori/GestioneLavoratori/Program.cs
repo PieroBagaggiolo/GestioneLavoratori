@@ -66,61 +66,62 @@ namespace GestioneLavoratori
                     lavoratori[i] = (Lavoratori)dip;
                 }
             }//inserimento lavoratori
+             /// <summary>
+             /// metodo per gestire le eccezzioni che possono uscire 
+             /// nell'operazioni di ordinamento
+             /// </summary>
+             /// <param name="scelta"></param>
+             /// <param name="workers"></param>
             try
             {
-
+                Console.WriteLine("Gli vuoi ordinati per stipendio(1) o per anzianità?(2)");
+                int scelta = Int32.Parse(Console.ReadLine());
+                if(scelta == 1)
+                {
+                    for(int i = 0; i<lavoratori.Length; i++)
+                    {
+                        int index = i;
+                        for(int j = i+1; j<lavoratori.Length;j++)
+                        {
+                            if(lavoratori[j].StipendioMens<lavoratori[index].StipendioMens)
+                            {
+                                index = j;
+                            }
+                            Lavoratori temp = new Lavoratori();
+                            temp = lavoratori[index];
+                            lavoratori[index] = lavoratori[i];
+                            lavoratori[i] = temp;
+                        }
+                    }
+                }
+                else if(scelta == 2)
+                {
+                    for (int i = 0; i < lavoratori.Length; i++)
+                    {
+                        int index = i;
+                        for (int j = i + 1; j < lavoratori.Length; j++)
+                        {
+                            if (lavoratori[j].AnniServizio < lavoratori[index].AnniServizio)
+                            {
+                                index = j;
+                            }
+                            Lavoratori temp = new Lavoratori();
+                            temp = lavoratori[index];
+                            lavoratori[index] = lavoratori[i];
+                            lavoratori[i] = temp;
+                        }
+                    }
+                }
             }
             catch(NullReferenceException ex)
             {
                 Console.WriteLine("Non ci sono elementi");
             }
-            Console.WriteLine("Gli vuoi ordinati per stipendio(1) o per anzianità?(2)");
-                        int scelta = Int32.Parse(Console.ReadLine());
-                        if(scelta == 1)
-                        {
-                            for(int i = 0; i<lavoratori.Length; i++)
-                            {
-                                int index = i;
-                                for(int j = i+1; j<lavoratori.Length;j++)
-                                {
-                                    if(lavoratori[j].StipendioMens<lavoratori[index].StipendioMens)
-                                    {
-                                        index = j;
-                                    }
-                                    Lavoratori temp = new Lavoratori();
-                                    temp = lavoratori[index];
-                                    lavoratori[index] = lavoratori[i];
-                                    lavoratori[i] = temp;
-                                }
-                            }
-                        }
-                        else if(scelta == 2)
-                        {
-                            for (int i = 0; i < lavoratori.Length; i++)
-                            {
-                                int index = i;
-                                for (int j = i + 1; j < lavoratori.Length; j++)
-                                {
-                                    if (lavoratori[j].AnniServizio < lavoratori[index].AnniServizio)
-                                    {
-                                        index = j;
-                                    }
-                                    Lavoratori temp = new Lavoratori();
-                                    temp = lavoratori[index];
-                                    lavoratori[index] = lavoratori[i];
-                                    lavoratori[i] = temp;
-
-                                }
-
-                            }
-                        }
-                        for(int i=0;i<lavoratori.Length;i++)
-                        {
-                            Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine+" Tasse: " + tasse[i] + Environment.NewLine);
-                        }
-                        Console.ReadLine();
-            
-            
+            for(int i=0;i<lavoratori.Length;i++)
+            {
+                Console.WriteLine(lavoratori[i].GetDettaglioPersona()+ Environment.NewLine+" Tasse: " + tasse[i]);
+            }
+            Console.ReadLine();
         }
     }
 }
